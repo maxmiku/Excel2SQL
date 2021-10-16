@@ -1,0 +1,251 @@
+/* 用于每个分类下elementBox里面内容的css */
+.b1{
+	font-size:1.6em;
+	margin-top: 0.4em;
+	margin-bottom: 0.2em;
+}
+.bcontent{
+	padding-left: 0.7em;
+}
+
+.contentBox div::-webkit-scrollbar,.contentBox table::-webkit-scrollbar{/*滚动条整体样式*/
+	width: 0.6em;     /*高宽分别对应横竖滚动条的尺寸*/
+	height: 0.8em;
+}
+
+.contentBox div::-webkit-scrollbar-thumb,.contentBox table::-webkit-scrollbar-thumb {/*滚动条里面小方块*/
+    border-radius: 0.8em;
+    -webkit-box-shadow: inset 0 0 0.6em rgba(0,0,0,0.2);
+    background: #6D6D6D96;
+
+}
+
+.contentBox div::-webkit-scrollbar-track,.contentBox table::-webkit-scrollbar-track {/*滚动条里面轨道*/
+    -webkit-box-shadow: inset 0 0 0.6em rgba(0,0,0,0.2);
+    border-radius: 0.8em;
+    background: #EDEDED78;
+}
+
+#uploadBox .btn{
+	margin:0 1vw 1vh 0;
+	padding: 0.6em 0.6em;
+	border-radius: 0.2em;
+}
+
+#uploadNotic{
+	transition: background-color 0.5s ease;
+}
+
+.contentBox .btn{
+	font-size: 1em;
+}
+
+#preimportBox .btn{
+	font-size: 0.8em;
+}
+
+#confirmBox .btn{
+	font-size: 0.8em;
+}
+
+.contentBox .alert{
+	font-size: 1em;
+	border-radius: 0.2em;
+	margin-bottom: 0.7em;
+	padding: 0.6em 0.7em;
+	/*vertical-align: top;*/
+	/*white-space: nowrap;*/
+}
+.contentBox .alert font{
+	/*display:inline-block;*/
+	/*white-space: normal;*/
+}
+
+.contentBox .alert>span{
+	padding-right: 0.5em;
+}
+
+#uploadBox .alert{
+	min-width: 20em;
+	white-space: nowrap;
+}
+
+#datapairBox .alert{
+	font-size: 0.8em;
+}
+
+#preimportBox .alert{
+	font-size: 0.8em;
+	transition: background-color 0.5s ease;
+
+}
+
+#confirmBox .alert{
+	white-space: nowrap;
+}
+
+#importingBox .alert{
+	min-width: 20em;
+}
+
+#resultBox .alert{
+	min-width: 20em;
+}
+
+/*.contentOutBox table .btn{
+	font-size: 0.8em;
+	height: 2.3em;
+}*/
+
+/*.contentOutBox table tbody,table tr{
+	transition: all 0.2s ease;
+}*/
+
+#datapairBox table>tbody>tr>td{
+	line-height: 0;
+	vertical-align: middle;
+	height: 2.5em;
+	padding: 0 0.4em;
+}
+
+#datapairBox table{
+	max-height: 19em;
+	overflow: auto;
+	/*overflow-x: hidden;*/
+}
+
+
+
+.dropTarget[id="table_excel"] tr{
+	/*border-style: solid;
+	border-width: 0.2em;
+	border-color: #F56F4D;*/
+	background-color: #1E8DE043;
+	transition: all 0.2s ease;
+	/*width: 96%;
+	height: 96%;*/
+
+}
+
+.dropTarget[id="table_field"] {
+	background-color: #1E8DE043;
+	transition: all 0.2s ease;
+}
+
+.dropTargetActive{
+	background-color: #F35E39B8 !important;
+	transition: all 0.2s ease;
+}
+
+
+.contentOutBox .table-inline{
+	display: inline-block;
+	position: relative;
+}
+
+.contentOutBox table th,td{
+	text-align: center;
+	white-space: nowrap;
+}
+
+#datapairBox .elementBox{
+	/*width: 45em;*/
+	white-space: nowrap;
+}
+
+.inline-tableBox{
+	display: inline-block;
+	margin:0 0.5em;
+	vertical-align: top;
+	max-height:19em;
+}
+
+#datapairBox .elementBox{
+	-moz-user-select:none; /*火狐*/
+    -webkit-user-select:none; /*webkit浏览器*/
+    -ms-user-select:none; /*IE10*/
+    -khtml-user-select:none; /*早期浏览器*/
+    user-select:none;
+}
+
+.datatable{
+	max-height: 25em;
+	max-width: 53em;
+	font-size: 0.8em;
+	overflow: auto;
+	margin:0.5em 0;
+}
+
+#preimportBox .floatRight{
+	float: right;
+	display: inline-block;
+}
+
+#preimportBox .floatLeft{
+	float: Left;
+	display:inline-block;
+}
+
+
+.checkboxButton input:checked + div{
+	background-color: #449d44;
+	color: #fff;
+}
+.checkboxButton input{
+	display: none;
+}
+
+
+
+#preimportBox table th{
+	padding-left: 0.4em;
+	padding-right: 0.4em;
+}
+
+.cnote{
+	color: #7F7F7FB8;
+	font-size: 0.85em;
+	margin-left: 1em;
+}
+
+.optionBox{
+	margin: 0.3em 0;
+	white-space: nowrap;
+}
+
+#confirmBox .bcontent{
+	padding-left: 1.5em;
+}
+
+#confirmBox .btn-default.active,#preimportBox .btn-default.active{
+	background-color: #449d44;
+	color:#fff;
+}
+
+#confirmBox .form-group>div{
+	width:20em;
+	margin:0.3em 0.8em;
+}
+
+#confirmBox .form-group input{
+	font-size: 0.9em;
+	padding: 1.2em 0.9em;
+	border-width: 0.08em;
+}
+
+/*隐藏数字input的调节键*/
+#confirmBox .form-group input::-webkit-inner-spin-button {
+   -webkit-appearance: none;
+}
+#confirmBox .form-group input::-webkit-outer-spin-button {
+   -webkit-appearance: none;
+}
+
+#importingBox .bcontent{
+	white-space: nowrap;
+}
+
+#importingBox .progress{
+	height: 1em;
+	border-radius: 0.2em;
+}

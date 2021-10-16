@@ -1,0 +1,374 @@
+#debugBox{
+	top:100%;
+	background-color: #555;
+	width: 100%;
+	height: 55vh;
+	position: absolute;
+	display: none;
+}
+#debugLogBox{
+	height: 100%;
+	width: 100%;
+	background-color: #bbb; 
+}
+#debugLog{
+	width: 100%;
+	height: 100%;
+}
+.inlineButton{
+	display: inline-block;
+	background-color: #55555555;
+	padding:10px 10px;
+	cursor:pointer;
+}
+
+
+
+#usernameBox{
+	/*width: 100%;
+	height: 20vh;*/
+	background-color: white;
+	/*height: 22rem;*/
+	/*margin: 0 20px;*/
+
+}
+#passwordBox{
+	background-color: white;
+
+}
+.loginBox{
+	width: 100%;
+
+	/*height: 25rem;*/
+}
+#mainBox{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+
+}
+
+@media (max-width: 25rem) {
+	#mainCenterBox{
+		width: 95%;
+		padding:0 1rem;
+	}
+}
+
+@media (min-width: 25rem) {
+	#mainCenterBox{
+		width: 20rem;
+		padding:0 3rem;
+	}
+}
+
+#mainCenterBox{
+	background-color: white;
+	/*position: relative;*/
+	/*width:20rem;*/
+	/*height: 23rem;*/
+	/*top:49%;*/
+	/*left:49%;*/
+	/*margin-left: -13rem;*/
+	/*margin-top: -11.5rem;*/
+	/*padding:0 3rem;*/
+	position: absolute;
+	top: 50%;
+	left: 50%;
+    -webkit-transform: translateY(-50%) translateX(-50%);
+    -moz-transform: translateY(-50%) translateX(-50%);
+    -ms-transform: translateY(-50%) translateX(-50%);
+    -o-transform: translateY(-50%) translateX(-50%);
+    transform: translateY(-50%) translateX(-50%);
+
+	z-index: 2;
+}
+body{
+	padding: 0;
+	margin: 0;
+	overflow: hidden;
+}
+.bgImg{
+	object-fit:cover;
+	width:100%;
+	height:100%;
+	position:absolute;
+	top:0px;
+	left:0px;
+}
+#unameInpBox{
+	width: 100%;
+/*	left: 50%;
+	margin-left: -175px;
+	position: relative;*/
+	/*padding: 0 1rem;*/
+}
+#passInpBox{
+	width: 100%;
+}
+.verCodeInpBox{
+	width: 50%;
+	/*left:20px;*/
+	display: inline-block;
+	position: relative;
+	margin-top: 1rem;
+}
+.vCodeBox{
+	width: 45%;
+	/*height: 52px;*/
+	vertical-align: middle;
+	text-align: center;
+	display: inline-block;
+	position: relative;
+	float: right;
+	/*border: solid;*/
+	right: 0rem;
+	margin-top: 1.2rem;
+	line-height: 100%;
+}
+
+.vCodeImg{
+	top:0;
+	left: 0;
+	width: 100%;
+	/*height: 100%;*/
+	position: absolute;
+}
+#verCodeInpBoxPass{
+	display: none;
+}
+
+#loginButBox{
+	/*left: 50%;*/
+	position: relative;
+	width: 100%;
+	height: 40px;
+	/*margin-left: -150px;*/
+	overflow: hidden;
+
+	margin-top: 2rem;
+}
+
+.loginButs{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+
+
+	top: 0;
+	left: 0;
+
+	display: inline-block;
+
+	text-align: center;
+	line-height: 40px;
+	transition: all 0.5s ease;
+	font-size: 1.1rem;
+	font-family: Sans-serif;
+	font-weight: bold;
+	-webkit-touch-callout: none; /* iOS Safari */
+	-webkit-user-select: none; /* Chrome/Safari/Opera */
+	-moz-user-select: none; /* Firefox */
+	-ms-user-select: none; /* Internet Explorer/Edge */
+	/*transform: translateX(100%);*/
+}
+
+
+.loginButsUndis{
+	transition: all 0.5s ease;
+	transform: translateX(-100%);
+}
+
+
+.loginButsHid{
+	transition: all 0.5s ease;
+	transform: translateX(100%);
+}
+
+#nextSetp:active , #loginSetp:active{
+	transition: all 0.3s ease;
+	background-color: #68CEA7;
+}
+
+
+#nextSetp , #loginSetp{
+	background-color: #56F5BA;
+}
+
+#waitNext{
+	color:#555;
+	background-color: #DBDBDB;
+}
+
+.loginTit{
+	color: #1cb9b6;
+	font-size:3rem;
+	font-family: Sans-serif;
+	padding-top: 0.8rem;
+	/*margin-left: 20px;*/
+	padding-bottom: 5px;
+	font-family: "Segoe UI","Helvetica Neue","Lucida Grande","Roboto","Ebrima","Nirmala UI","Gadugi","Segoe Xbox Symbol","Segoe UI Symbol","Khmer UI","Tunga","Lao UI","Raavi","Iskoola Pota","Latha","Leelawadee","Microsoft YaHei UI","Microsoft JhengHei UI","Malgun Gothic","Estrangelo Edessa","Microsoft Himalaya","Microsoft New Tai Lue","Microsoft PhagsPa","Microsoft Tai Le","Microsoft Yi Baiti","Mongolian Baiti","MV Boli","Myanmar Text","Cambria Math";
+}
+
+.loginSubt{
+	font-size:1.2rem;
+	margin-bottom: 0.5rem;
+	font-weight: bold;
+	/*height: 1.5rem;*/
+	/*line-height: 1.5rem;*/
+	vertical-align:top;
+	font-family: "Segoe UI","Helvetica Neue","Lucida Grande","Roboto","Ebrima","Nirmala UI","Gadugi","Segoe Xbox Symbol","Segoe UI Symbol","Khmer UI","Tunga","Lao UI","Raavi","Iskoola Pota","Latha","Leelawadee","Microsoft YaHei UI","Microsoft JhengHei UI","Malgun Gothic","Estrangelo Edessa","Microsoft Himalaya","Microsoft New Tai Lue","Microsoft PhagsPa","Microsoft Tai Le","Microsoft Yi Baiti","Mongolian Baiti","MV Boli","Myanmar Text","Cambria Math";
+}
+
+#backButBox{
+	display: inline-block;
+/*	vertical-align: top;
+	min-height: 24px;
+    width: 24px;
+    min-width: 24px;
+    padding: 0;
+    background-color: #fff;
+    border-width: 1;
+    border-radius: 12px;
+    margin-right: 2px;
+    position: relative;*/
+    height:22px;
+	width: 22px; 
+	margin-top: 2px;
+}
+
+#backButBox:hover{
+	border-radius: 3em;
+	background-color:#D1D1D1FF;
+}
+
+#uNameDisplay{
+	display:inline-block;
+	vertical-align: top;
+	font-size:1.1rem;
+}
+
+#uPassTopBox{
+	margin-bottom:1rem;
+}
+
+#bottomBox{
+	position: relative;
+	/*background-color:red;*/
+	padding-left:0.3rem;
+	padding-right:0.3rem;
+	padding-top: 1rem;
+	padding-bottom: 0.3rem;
+	text-align: center;
+	color: #999;
+	bottom: 0;
+	left: 0;
+	right: 0;
+}
+#bottomBox a:LINK, #bottomBox a:VISITED,#bottomBox a:hover{
+	margin:0 0.3rem;
+	color: #999;
+	text-decoration: none;
+}
+
+#regLink{
+	display: none;
+}
+
+input{
+	/*ios修复视觉问题*/
+	-webkit-appearance: none;
+	border-radius: 0;
+	padding:0;
+}
+
+button{
+	/*ios修复视觉问题*/
+	-webkit-appearance: none;
+}
+
+form {
+/*  width: 50%;
+	height: 50vh;*/
+	/*margin:0 1rem;*/
+	position: relative;
+	font-family: Sans-serif;
+	/*overflow: hidden; /*底线消失*/
+}
+
+form label {
+	font-size: 1.1rem;
+	position: absolute;
+	top: 0;
+	left: 0;
+	pointer-events: none;
+	color: #666;
+}
+
+form input {
+	font-size: 1.5rem;
+	height: 2rem;
+	width: 100%;
+	padding-top: 2rem; /* 新增 */
+	border: none;
+	border-bottom: 0.1rem solid #555;
+	outline: none; /* 新增 */
+}
+
+form label::after {
+	content: ""; /* 这个很关键，我们需要这个属性底部边框才会显示出来 */
+	height: 3rem;
+	width: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	border-bottom: 0.2rem solid #1cb9b6; /* 底部边框需要较为突出，这里我们加粗跟上颜色 */
+	transform: translateX(-100%); /* 向左平移 100% 确保移出 form 元素之外 */
+	transition: all 0.3s ease; /* 添加动画来达到平滑移动的效果 */
+}
+
+form label span {
+	position: absolute;
+	bottom: -3.8rem;
+	left: 0;
+	transition: all 0.3s ease; /* 动画，达到平滑移动的效果 */
+}
+
+form input:focus{
+	border-bottom: 0.1rem solid #1cb9b6;
+}
+
+form input:focus + label span,
+form input:valid + label span {
+	transform: translateY(-100%); /* 将 Username向上平移 */
+	font-size: 1.5rem; /* 变大字体，突显高亮效果 */
+	color: #1cb9b6; /* 高亮颜色 */
+}
+form input:focus + label::after,
+form input:valid + label::after {
+	transform: translateX(0); /* 将左边的高亮底部边框平移回来 */
+}
+
+
+
+
+#copyright{
+	position: fixed;
+	width: 100%;
+	/*margin:0 auto;*/
+	bottom: 0;
+	text-align: center;
+	color: #3337;
+	font-size: 0.8em;
+	font-family:Arial;
+	z-index: 1;
+
+}
+#copyright div{
+	display: inline-block;
+	padding: 0 1em;
+	background-color:#ffffff22;
+}
+#copyright a{
+	color: #33f7;
+}

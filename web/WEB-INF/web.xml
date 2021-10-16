@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
+  <display-name>excel2sql</display-name>
+  <listener>
+    <listener-class>listener.SessionListener</listener-class>
+  </listener>
+  <listener>
+    <listener-class>listener.InitListener</listener-class>
+  </listener>
+  
+<!--  <servlet>-->
+<!--  	<servlet-name>userCenterAPIAuth</servlet-name>-->
+<!--  	<servlet-class>userCenterAPIPage.ToAuthorize</servlet-class>-->
+<!--  </servlet>-->
+<!--  <servlet-mapping>-->
+<!--  	<servlet-name>userCenterAPIAuth</servlet-name>-->
+<!--  	<url-pattern>/userCenterAPI/auth</url-pattern>-->
+<!--  </servlet-mapping>-->
+<!--  <servlet>-->
+<!--  	<servlet-name>userCenterAPIAuthBack</servlet-name>-->
+<!--  	<servlet-class>userCenterAPIPage.AuthBack</servlet-class>-->
+<!--  </servlet>-->
+<!--  <servlet-mapping>-->
+<!--  	<servlet-name>userCenterAPIAuthBack</servlet-name>-->
+<!--  	<url-pattern>/userCenterAPI/authBack</url-pattern>-->
+<!--  </servlet-mapping>-->
+
+    <servlet>
+        <servlet-name>user.CheckUser</servlet-name>
+        <servlet-class>userCenter.user.login.CheckUser</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>user.CheckUser</servlet-name>
+        <url-pattern>/userCenter/user/checkUser</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>user.UserLogin</servlet-name>
+        <servlet-class>userCenter.user.login.UserLogin</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>user.UserLogin</servlet-name>
+        <url-pattern>/userCenter/user/userLogin</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>user.UserLogout</servlet-name>
+        <servlet-class>userCenter.user.login.UserLogout</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>user.UserLogout</servlet-name>
+        <url-pattern>/userCenter/user/userLogout</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>user.GetVerifyCodePic</servlet-name>
+        <servlet-class>userCenter.tools.security.GetVerifyCode</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>user.GetVerifyCodePic</servlet-name>
+        <url-pattern>/userCenter/user/getv</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>user.ChangePass</servlet-name>
+        <servlet-class>userCenter.user.manage.ChangePassword</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>user.ChangePass</servlet-name>
+        <url-pattern>/userCenter/user/manage/changePass</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>user.register.CheckUser</servlet-name>
+        <servlet-class>userCenter.user.register.CheckUser</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>user.register.CheckUser</servlet-name>
+        <url-pattern>/userCenter/user/register/checkUser</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>user.register.UserRegister</servlet-name>
+        <servlet-class>userCenter.user.register.UserRegister</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>user.register.UserRegister</servlet-name>
+        <url-pattern>/userCenter/user/register/registerUser</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>user.register.CanRegister</servlet-name>
+        <servlet-class>userCenter.user.register.CanRegister</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>user.register.CanRegister</servlet-name>
+        <url-pattern>/userCenter/user/register/canRegister</url-pattern>
+    </servlet-mapping>
+  
+  <session-config>
+    <session-timeout>10</session-timeout>
+  </session-config>
+</web-app>

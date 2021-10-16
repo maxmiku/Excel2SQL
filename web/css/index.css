@@ -1,0 +1,348 @@
+#mainBackground{
+	/*position: relative;
+	height: 100vh;
+	width: 100vw;
+	display: block;
+	margin:auto;
+	background-color: #FFE7B6FF;
+	display: none;*/
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    /*background-color: #abc;*/
+    color: white;
+    /*font-size: 20px;*/
+}
+
+#loadingBox{
+	font-size: 1.9em;
+	font-weight: bold;
+	color: #EEEEEEEE;
+	position: absolute;
+	height: 2em;
+	width: 13em;
+	text-align: center;
+	vertical-align: middle;
+	left:50%;
+	top: 50%;
+	margin-left: -6.5em;
+	margin-top: -1em;
+}
+
+body{
+	margin:0;
+	padding:0;
+	/*overflow:hidden;*/
+    /*position:static;*/
+	background-color: #abc;
+}
+
+table{
+	text-align: center;
+}
+
+#centerBox{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+    -webkit-transform: translateY(-50%) translateX(-50%);
+    -moz-transform: translateY(-50%) translateX(-50%);
+    -ms-transform: translateY(-50%) translateX(-50%);
+    -o-transform: translateY(-50%) translateX(-50%);
+    transform: translateY(-50%) translateX(-50%);
+	/*background-color: red;*/
+/*	display: flex;*/
+	/*width: 100vw;*/
+	/*height: 100vh;*/
+	/*min-width: 443px;*/
+	/*transition: all 0.1s ease;*/
+	/*transition:  0.2s ease 0.3s;*/
+	/*position: absolute;*/
+	background-color: rgba(255,255,255,0.3);
+	z-index: 50;
+	/*background-color: red;*/
+	
+	/*初始状态 隐藏*/
+	/*transform: translateX(-400%);*/
+	/*filter:alpha(Opacity=0);-moz-opacity:0;opacity: 0;*/
+
+
+	/*以下用于确保页面初次显示时不会动得幅度过大*/
+	/*height: 40vh;*/
+	/*top: 30%;*/
+	/*left:40%*/
+}
+
+#centerInBox{
+	display: flex;
+}
+
+#leftBox{
+	background-color: #80808080;
+	display: block;
+	position: relative;
+	overflow: hidden;
+}
+
+#rightBox{
+	/*background-color: blue;*/
+	background-color: #fff;
+	display: block;
+	position: relative;
+	/*height: 100%;*/
+	overflow: hidden;
+}
+
+html, body {
+-ms-overflow-style: scrollbar;
+}
+
+#processlist{
+	font-size:1.4em;
+	white-space: nowrap;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	-o-user-select: none;
+	user-select: none;
+}
+#processlist>ul{
+	margin:0;
+	padding: 0;
+}
+#processlist li{
+	padding: 0.6em 0.65em;
+	/*padding-left: 0.6em;
+	padding-right: 0.7em;*/
+}
+#processlist li.active{
+	background-color: #3BC375FF;
+}
+#processlist li.before{
+	color: #ddd;
+}
+#processlist li.before:hover{
+	color: #fff;
+	background-color: #5BCC88FF;
+	cursor: pointer;
+}
+#processlist li.after{
+	color: #fff;
+}
+#processlist li>span{
+	margin-right: 0.4em;
+}
+
+.user_logout{
+	width: 100%;
+	text-align: center;
+	font-size: 1.1em;
+	color: #ddd;
+}
+
+#user_logout{
+
+	position: absolute;
+	
+	/*background-color: red;*/
+	/*
+	color: #ddd;*/
+	/*margin-top: 20vh;*/
+	bottom: 0;
+	transition: all 0.2s ease;
+	cursor: pointer;
+}
+
+#user_logout:hover{
+	color: #fff;
+	background-color: #FF5B61FF;
+}
+
+
+
+
+.contentOutBoxActive{/*当前正在激活的box*/
+	/*background-color: #A2FF7AA3;*/
+	transform: translateX(0);
+	display: block;
+}
+.contentOutBoxBottom{/*隐藏在底部的box*/
+	/*background-color: #FAFF75A3;*/
+	transform: translateY(100%);
+	display: none;
+}
+.contentOutBoxTop{/*隐藏在顶部的box*/
+	/*background-color: #FF75AEA3;*/
+	transform: translateY(-100%);
+	display: none;
+}
+
+
+
+
+
+
+.contentOutBox{
+	/*background-color: #fff;*/
+	color: #333;
+	position: absolute;
+	/*height: 70vh;*/
+	padding-top: 1.5vh;
+	/*padding-right: 1vw;*/
+	/*padding-left: 0vw;*/
+	/*padding-top: 2%;*/
+	transition: all 0.2s ease;
+}
+
+
+.contentBox{
+	padding: 1em 1.25em 0.5em 0.75em;
+}
+
+
+.contentTitBox{
+	white-space: nowrap
+}
+.contentTit{
+	padding-left: 1vw;
+	font-size:2em;
+}
+
+.contentSubTit{
+	padding-left: 0.5em;
+	font-size:1.1em;
+	min-width: 15em;
+}
+
+
+.hr{
+	width: 100%;
+	height: 0.3vh;
+	
+	background-color: #00000022;
+
+	/*background: -webkit-linear-gradient(left,rgba(0,0,0,0),rgba(0,0,0,0.3),rgba(0,0,0,0.3),rgba(0,0,0,0.3),rgba(0,0,0,0.22),rgba(0,0,0,0.15),rgba(0,0,0,0.1),rgba(0,0,0,0.025),rgba(0,0,0,0.01),rgba(0,0,0,0));
+	background: linear-gradient(to right,rgba(0,0,0,0),rgba(0,0,0,0.3),rgba(0,0,0,0.3),rgba(0,0,0,0.3),rgba(0,0,0,0.22),rgba(0,0,0,0.15),rgba(0,0,0,0.1),rgba(0,0,0,0.025),rgba(0,0,0,0.01),rgba(0,0,0,0));
+	*/
+		
+	border-radius: 0.1em;
+	
+
+	margin: 0.5em 0 0.8em;
+	max-height: 2px;
+}
+
+.buttonArea{
+	/*background-color: yellow;*/
+	display: flex;
+	width: 100%;
+	justify-content: space-around;
+	/*height: 100px;*/
+}
+
+.buttonBox{/*底栏操作按钮大框*/
+	position: absolute;
+	bottom: 0;
+	
+}
+
+.button{/*底栏操作按钮*/
+	border: solid 0.1em rgba(0,0,0,0);
+	display: block;
+	padding:0.45em 0.45em;
+	border-radius: 0.2em;
+	margin:0.5em 0;
+	transition: all 0.2s ease;
+	user-select: none;
+	/*white-space: nowrap*/
+}
+
+.elementBox{
+	/*高度最大值 height: 80vh;*/
+	/*height: 50vh;
+	width: 50vw;*/
+	/*background-color: yellow;*/
+	position: relative;
+	padding-left: 1vw;
+}
+
+
+
+/*按钮的css请前往 index.button.css*/
+
+
+.uploadButton{
+	transition: all 0.5s ease;
+	/*transform: translateX(-100%);*/
+	background-color: #FF9C3CFF;
+	font-weight: normal;
+	font-size: 1em;
+	white-space: nowrap;
+}
+
+.uploadButton:hover{
+	transition: all 0.5s ease;
+	/*transform: translateX(-100%);*/
+	background-color: #FF830FFF;
+	/*font-size: 0.9em;*/
+}
+
+.uploadButton:active{
+	transition: all 0.2s ease;
+	/*transform: translateX(-100%);*/
+	background-color: #E55F00FF;
+	/*font-size: 0.9em;*/
+}
+
+.errorCell{
+	font-weight: bold;
+	color: red;
+}
+
+.nullRows{
+	background-color: #CF2F5C39;
+}
+
+
+#fileuploadtor{
+	display: none;
+}
+
+/* Fixes for IE < 8 */
+@media screen\9 {
+  .fileinput-button input {
+    filter: alpha(opacity=0);
+    font-size: 100%;
+    height: 100%;
+  }
+}
+
+.fade + .popover{
+	z-index: 1;
+}
+
+
+
+
+#copyright{
+	position: fixed;
+	width: 100%;
+	/*margin:0 auto;*/
+	bottom: 0;
+	text-align: center;
+	color: #3337;
+	font-size: 0.8em;
+	font-family:Arial;
+	z-index: 1;
+
+}
+#copyright div{
+	display: inline-block;
+	padding: 0 1em;
+	/*background-color:#ffffff22;*/
+}
+#copyright a{
+	color: #33f7;
+}

@@ -1,0 +1,32 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="excel2sql ex">
+    <output-path>$PROJECT_DIR$/classes/artifacts/excel2sql_ex</output-path>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="excel2sql" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="module" name="commons-beanutils-1.9.2.jar" module-name="excel2sql" />
+          <element id="library" level="module" name="commons-collections-3.2.1.jar" module-name="excel2sql" />
+          <element id="library" level="module" name="commons-lang-2.6.jar" module-name="excel2sql" />
+          <element id="library" level="module" name="commons-logging-1.2.jar" module-name="excel2sql" />
+          <element id="library" level="module" name="ezmorph-1.0.6.jar" module-name="excel2sql" />
+          <element id="library" level="module" name="json-lib-2.4-jdk15.jar" module-name="excel2sql" />
+          <element id="library" level="module" name="commons-codec-1.13.jar" module-name="excel2sql" />
+          <element id="library" level="module" name="commons-collections4-4.4.jar" module-name="excel2sql" />
+          <element id="library" level="module" name="commons-compress-1.19.jar" module-name="excel2sql" />
+          <element id="library" level="module" name="commons-math3-3.6.1.jar" module-name="excel2sql" />
+          <element id="library" level="module" name="curvesapi-1.06.jar" module-name="excel2sql" />
+          <element id="library" level="module" name="poi-4.1.1.jar" module-name="excel2sql" />
+          <element id="library" level="module" name="poi-ooxml-4.1.1.jar" module-name="excel2sql" />
+          <element id="library" level="module" name="poi-ooxml-schemas-4.1.1.jar" module-name="excel2sql" />
+          <element id="library" level="module" name="SparseBitSet-1.2.jar" module-name="excel2sql" />
+          <element id="library" level="module" name="xmlbeans-3.1.0.jar" module-name="excel2sql" />
+        </element>
+      </element>
+      <element id="javaee-facet-resources" facet="excel2sql/web/Web" />
+      <element id="library" level="project" name="userCenterAPI" />
+    </root>
+  </artifact>
+</component>

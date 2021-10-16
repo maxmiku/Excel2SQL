@@ -1,0 +1,67 @@
+{
+	"database":{
+		"excel2sql":{
+			"sql_url":"127.0.0.1/worktimedata",
+			"sql_user":"UserName",
+			"sql_pwd":"Password"
+		},
+		"userCenter":{
+			"sql_url":"127.0.0.1/user_center",
+			"sql_user":"UserName",
+			"sql_pwd":"Password"
+		},
+		"sql_driver":"com.mysql.jdbc.Driver"//数据库连接驱动class名
+	},
+	"excel2sqlConfig":{
+		"skipInitDelette":false,//跳过初始化删除文件
+		"maxAllowUploadSize":20480,//最大允许上传字节数 单位:KB  1MB=1024KB
+
+		"EXCEL_EDITFORM":"worktimedata",//可编辑的表名
+		"EXCEL_MAX_IMPORT_THREADS": 2,//最大导入线程数
+
+		/* 
+	     * excel_editable
+	     * excel导入中数据库可编辑的字段 ,可从SqlUtil.getColumnTypes(表名) 获取 请注意引号转义
+	     * Type:JSONArray字符串
+	     * 		其中字段类型可以为:类型 TIMESTAMP  INT  VARCHAR  DOUBLE
+	     * 
+	     * [  {"id":INT 该字段在表中的编号,"n":String 字段名,"t":String 字段类型,"c":String 中文字段类型(用于给客户展示),"cn":String 字段解释
+	     * 		,"d(可选)":"默认值 可选 读取表格出错时会用默认值  当没有该项是则没有默认值"
+	     * },{.. 可编辑字段2以此类推 ..}  ]
+	     * 
+	     * eg.
+	     * "[{\"id\":0,\"n\":\"real_name\",\"t\":\"VARCHAR\",\"c\":\"文本\",\"cn\":\"姓名\",\"d\":\"err\"}]"
+	     * 
+	     */
+		"excel_editable":[{"id":0,"n":"real_name","t":"VARCHAR","c":"文本","cn":"姓名"},{"id":1,"n":"student_id","t":"VARCHAR","c":"文本","cn":"学号 主键"},{"id":2,"n":"department","t":"VARCHAR","c":"文本","cn":"部门"},{"id":3,"n":"post","t":"VARCHAR","c":"文本","cn":"岗位"},{"id":4,"n":"wage","t":"DOUBLE","c":"双精度小数","cn":"工资","d":"0"},{"id":5,"n":"hour","t":"DOUBLE","c":"双精度小数","cn":"工时","d":"0"},{"id":6,"n":"teacher","t":"VARCHAR","c":"文本","cn":"考核老师"}],
+
+		/*
+	     * excel_recommand
+	     * 字段推荐列表
+	     * ks:关键字keys的数组
+	     * rid:推荐的字段id 与 上方editable相对应
+	     * ks为关键字 越往后越优先
+			[
+				{"ks":["姓名"],"rid":0},
+				{"ks":["学号"],"rid":1},
+				{"ks":["部门"],"rid":2},
+				{"ks":["岗位"],"rid":3},
+				{"ks":["工资"],"rid":4},
+				{"ks":["工时"],"rid":5},
+				{"ks":["考核老师"],"rid":6}
+			]
+	     */
+	    "excel_recommand":[{"ks":["姓名"],"rid":0},{"ks":["学号"],"rid":1},{"ks":["部门"],"rid":2},{"ks":["岗位"],"rid":3},{"ks":["工资"],"rid":4},{"ks":["工时"],"rid":5},{"ks":["考核老师"],"rid":6}]
+	},
+	"userCenterConfig":{
+		"regCfg":{
+			/**
+			 * 默认注册后初始用户等级
+			 * 0受限  1普通  2管理员  3超级管理员  4root
+			 */
+			"defaultUserLevel":0,
+
+			"AllowRegister":true //是否允许注册
+		}
+	}
+}

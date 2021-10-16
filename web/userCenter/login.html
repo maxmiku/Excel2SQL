@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="utf-8"/>
+	<title>Login</title>
+	<script type="text/javascript" src="./js/jquery-2.1.1.min.js"></script>
+	<!-- <script type="text/javascript" src="./js/vue.min.js"></script> -->
+	<link rel="stylesheet" type="text/css" href="./css/login.css">
+
+</head>
+<body>
+<div id="mainBox">
+<img class="bgImg" src="./img/loginBgs.jpg"/>
+<img class="bgImg" id="midBg" src="" style="display: none;"/>
+<img class="bgImg" id="bigBg" src="" style="display: none;"/>
+
+<div id="mainCenterBox">
+	<div class="loginTit">Login</div>
+	<div class="loginBox" id="usernameBox">
+		<div class="loginSubt">请输入用户名和验证码</div>
+		<div id="unameInpBox">
+			<form>
+			  <input type="text" id="uName" onkeypress="uNameKeypress(event)"required />
+			  <label>
+			    <span>Username</span>
+			  </label>
+			  <input type="password" id="fakeuPass" style="display: none" />
+			  <input type="text" style="display: none" />
+			</form>
+		</div>
+	
+		<div class="verCodeInpBox">
+			<form>
+			  <input type="text" id="vCodeuName" onkeypress="verCodeKeypressuName(event)" autocomplete="off" required />
+			  <label>
+			    <span>VerifyCode</span>
+			  </label>
+			  <input type="text" style="display: none" />
+			</form>
+		</div>
+
+		<div class="vCodeBox">
+			Loading
+			<img class="vCodeImg" id="vCodeImguName" src="data:image/ico;base64,AAABAAEAAQEAAAEAIAAwAAAAFgAAACgAAAABAAAAAgAAAAEAIAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAA==" onclick="refreshVCodeuName()"/>
+		</div>
+		
+		<!-- UserName <input type="text" id="uName" /> -->
+		
+		<!-- 验证码 <input type="text" id="vCode" onkeypress="verCodeKeypress(event)"/> -->
+		
+		
+		<!-- <div id="nextSetp" class="inlineButton" onclick="loginPress()">下一步</div> -->
+	</div>
+	
+	<div class="loginBox" id="passwordBox" style="display: none;">
+		<div id="uPassTopBox">
+			<div id="backButBox" onclick="loginPrevSetp()">
+				<svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" width="100%" height="100%" viewBox="0 0 48 48"><path d="M40 22H15.66l11.17-11.17L24 8 8 24l16 16 2.83-2.83L15.66 26H40v-4z" fill="#404040"/></svg>
+			</div>
+			<span id="uNameDisplay"></span>
+		</div>
+		<div class="loginSubt">
+			请输入密码
+		</div>
+		<div id="passInpBox">
+			<form>
+			  <input type="text" id="fakeuName" style="display: none;" required />
+			  <input type="password" id="uPass" onkeypress="passKeypress(event)" required />
+			  <label>
+			    <span>Password</span>
+			  </label>
+			  <input type="text" style="display: none" />
+			</form>
+		</div>
+		
+		<div id="verCodeInpBoxPass">
+			<div class="verCodeInpBox">
+				<form>
+				  <input type="text" id="vCodeuPass" onkeypress="verCodeKeypressuPass(event)" autocomplete="off" required />
+				  <label>
+				    <span>VerifyCode</span>
+				  </label>
+				  <input type="text" style="display: none" />
+				</form>
+			</div>
+
+			<div class="vCodeBox">
+				Loading
+				<img class="vCodeImg" id="vCodeImguPass" src="data:image/ico;base64,AAABAAEAAQEAAAEAIAAwAAAAFgAAACgAAAABAAAAAgAAAAEAIAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAA==" onclick="refreshVCodeuPass()"/>
+			</div>
+		</div>
+
+	</div>
+	<div id="loginButBox">
+			<div id="waitNext" class="loginButs">加载中</div>
+			<div id="nextSetp" class="loginButs loginButsUndis" onclick="nextPress()">下一步</div>
+			<div id="loginSetp" class="loginButs loginButsUndis" onclick="loginButPress()">登录</div>
+	</div>
+	<div id="bottomBox">
+<!--		<a href="#">忘记密码</a> &#12288;&#12288; -->
+		<a id="regLink" href="register.html">注册</a>
+	</div>
+</div>
+
+
+
+</div>
+
+<div id="copyright"><div><strong>Copyright &copy; 2020 by MaxMiku All rights Reserved<br/><i>Version 1.2</i> Contact me: <a href="mailto:jmchenlx@outlook.com?subject=[UserCenter] ">jmchenlx@outlook.com</a></strong></div></div>
+
+<div id="debugBox">
+	<div id="jsLoadStatus">
+		当前加载进度 <span id="asJsStatus">-1</span>  .....异步加载js进度 -1未开始 -2已完成 访问方法V.$data.asJsStatus
+	</div>
+	<div>
+		当前加载进度 <span id="processStatus">0</span>  .....当前登录页面的进度 0初始状态  1未生成客户端密钥对     2已生成客户端密钥对可以输入用户名   3当前输入完用户名但未拉入服务器公钥  4已拉取服务器公钥   5已输入密码正在发送给服务器              6登录完成
+		
+	</div>
+	<div class="inlineButton" onclick="clearss()">清空sessionStorage</div>
+	<div id="debugLogBox">
+		<textarea id="debugLog">Log:</textarea>
+	</div>
+</div>
+
+
+</body>
+<script type="text/javascript">
+	
+
+	setTimeout(function(){document.getElementById("uName").focus()},200);
+	
+
+
+
+	var requireJs=["./js/login.js","./js/encrypt/jsencrypt.min.js","./js/encrypt/rsaUtils.js","./js/encrypt/aes.js","./js/encrypt/aesUtil.js","./js/md5.js"];//需求加载的js列表
+
+	var asJsStatus=-1;//异步加载js进度 -1未开始 -2已完成 访问方法V.$data.asJsStatus
+	
+
+
+	/*function asJsLoadProcess(num){
+		//异步加载js的进度处理函数
+		//-1未开始 -2已完成 访问方法V.$data.asJsStatus
+		asJsStatus=num;
+		document.getElementById("asJsStatus").innerHTML=num;
+	}*/
+
+	var asJsLoadProcess = [false];
+	
+
+	function asJsLoadRefreash(callback) {
+		//异步加载js的进度处理函数
+		//-1未开始 -2已完成 访问方法V.$data.asJsStatus
+		var notLoadComp=0;
+		
+		for (var i = 0; i < asJsLoadProcess.length; i++) {
+			if(asJsLoadProcess[i]){
+				
+			}else{
+				
+				notLoadComp++;
+			}
+		}
+		console.log("当前未加载完的项目:"+notLoadComp);
+		if(notLoadComp==0){
+			//js加载完成
+			
+			asJsStatus=-2;
+			
+			$('#bigBg').attr("src","./img/loginBg.jpg");
+			$('#bigBg').show();
+
+
+			asJsLoadComp();//调用完成加载函数
+			
+		}else{
+			asJsStatus=notLoadComp;
+		}
+		
+		document.getElementById("asJsStatus").innerHTML=asJsStatus;
+	}
+
+	function nextPress() {
+		if(asJsStatus!=-2){
+			alert("系统还未初始化完成,请稍候...");
+			return;
+		}else{
+			loginNextSetp();
+		}
+	}
+	
+	function dblog(text){
+		return;
+		var date=new Date();
+		var timeStr=date.getHours()+":"+date.getMinutes()+":"+date.getSeconds();
+		console.log("["+timeStr+"] "+text);
+		$('#debugLog').html($('#debugLog').html()+"\n["+timeStr+"] "+text);
+		$("#debugLog").scrollTop($("#debugLog")[0].scrollHeight);
+	}
+
+
+
+	document.onreadystatechange = function () {//即在加载的过程中执行下面的代码
+		console.log("页面加载中:"+document.readyState);
+		if(document.readyState=="complete"){//complete加载完成
+			//页面加载完成
+			// $(".loading").fadeOut();
+
+			//开始加载其它加密的js
+			
+			function asLoadJs(num,callback){
+				setTimeout(function(){
+					
+			        if(num<requireJs.length-1)
+			        	callback(++num,callback);
+			        else{
+			        	asJsLoadProcess[0]=true;
+			        	asJsLoadRefreash();
+			        }
+			    
+				}, 10);
+				var nowNum = asJsLoadProcess.push(false)-1;
+				console.log("获取js列表中的js[%d] %s",num,requireJs[num]);
+				var script = document.createElement('script');
+
+				//创建js组件
+				document.body.appendChild(script);
+				script.type = 'text/javascript';//设置
+
+				script.src=requireJs[num];
+				
+				
+				script.onload = script.onreadystatechange = function(){
+					asJsLoadProcess[nowNum]=true;
+					asJsLoadRefreash();
+					//dblog("[init] 异步JS-"+requireJs[num]+" [OK]");
+				}
+				
+				/*//当本个js加载完再加载
+				script.onload = script.onreadystatechange = function(){
+					//判断js是否加载完成
+					// console.log("当前js加载状态:"+this.readyState);
+					
+				    if(  ! this.readyState     //这是FF的判断语句，因为ff下没有readyState这人值，IE的readyState肯定有值
+				          || this.readyState=='loaded' || this.readyState=='complete'   // 这是IE的判断语句
+				    ){
+				        //jq加载完成
+				        if(num<requireJs.length-1)
+				        	callback(++num,callback);
+				        else{
+				        	asJsLoadProcess(-2);
+				        }
+				    }
+
+				};*/
+				
+			}
+			console.log("开始加载其它加密的js");
+			asLoadJs(0,function (n,a){asLoadJs(n,a)});
+
+			$('#midBg').attr("src","./img/loginBgm.jpg");
+			$('#midBg').show();
+			
+		}
+	}
+
+
+
+
+
+
+</script>
+</html>

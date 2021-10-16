@@ -1,0 +1,36 @@
+{
+	"database":{
+		"excel2sql":{
+			"sql_url":"127.0.0.1/worktimedata",
+			"sql_user":"root",
+			"sql_pwd":"password"
+		},
+		"userCenter":{
+			"sql_url":"127.0.0.1/user_center",
+			"sql_user":"root",
+			"sql_pwd":"password"
+		},
+		"sql_driver":"com.mysql.jdbc.Driver"
+	},
+	"excel2sqlConfig":{
+		"skipInitDelette":false,
+		"maxAllowUploadSize":20480,
+
+		"EXCEL_EDITFORM":"worktimedata",
+		"EXCEL_MAX_IMPORT_THREADS": 2,
+ 
+		
+		"excel_editable":[{"id":0,"n":"real_name","t":"VARCHAR","c":"文本","cn":"姓名"},{"id":1,"n":"student_id","t":"VARCHAR","c":"文本","cn":"学号 主键"},{"id":2,"n":"department","t":"VARCHAR","c":"文本","cn":"部门"},{"id":3,"n":"post","t":"VARCHAR","c":"文本","cn":"岗位"},{"id":4,"n":"wage","t":"DOUBLE","c":"双精度小数","cn":"工资","d":"0"},{"id":5,"n":"hour","t":"DOUBLE","c":"双精度小数","cn":"工时","d":"0"},{"id":6,"n":"teacher","t":"VARCHAR","c":"文本","cn":"考核老师"}],
+
+		
+	    "excel_recommand":[{"ks":["姓名"],"rid":0},{"ks":["学号"],"rid":1},{"ks":["部门"],"rid":2},{"ks":["岗位"],"rid":3},{"ks":["工资"],"rid":4},{"ks":["工时"],"rid":5},{"ks":["考核老师"],"rid":6}]
+	},
+	"userCenterConfig":{
+		"regCfg":{
+			
+			"defaultUserLevel":0,
+
+			"AllowRegister":true 
+		}
+	}
+}

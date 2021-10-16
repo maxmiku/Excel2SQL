@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+
+
+
+
+<link rel="stylesheet" type="text/css" href="./css/index.css"/>
+<link rel="stylesheet" type="text/css" href="./css/index.button.css"/>
+<link rel="stylesheet" type="text/css" href="./css/index.box.css"/>
+<link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css"/>
+<title>Excel 导入</title>
+
+</head>
+<body>
+<div id="loadingBox"><i>Loading...</i></div>
+<div id="mainBackground">
+
+<div id="centerBox">
+	<div id="centerInBox">
+		<div id="leftBox">
+			<div id="leftLimitBox"><!-- 用于获取左侧的高度 -->
+				<div id="processlist">
+					<ul type="none">
+						<li value=0><span>①</span>上传文件</li>
+						<li value=1><span>②</span>配对数据</li>
+						<li value=2><span>③</span>预导入</li>
+						<li value=3><span>④</span>确认导入</li>
+						<li value=4><span>⑤</span>正在导入</li>
+						<li value=5><span>⑥</span>导入结果</li>
+					</ul>
+				</div>
+				<!-- 下面纯粹为了占位 -->
+				<div class="needHelp">&#12288;</div>
+			</div>
+
+			<div class="user_logout" id="user_logout">
+				登入
+			</div>
+		</div>
+		<div id="rightBox">
+			<div id="rightInBox">
+
+<!-- 上传文件框 0 -->
+<div id="uploadBox" class="contentOutBox contentOutBoxActive">
+  <div class="contentBox">
+	<div class="contentTitBox">
+		<span class="contentTit">数据导入</span>
+		<span class="contentSubTit">上传文件</span>
+	</div>
+
+	<!-- 华丽的分割线 -->
+	<div class="hr"></div>
+	
+
+	<div class="elementBox">
+		<!-- <div class="b1"></div> -->
+		<div class="bcontent">
+			<div id="uploadNotic" class="alert alert-info"><span class="glyphicon glyphicon-info-sign"></span><font style="vertical-align: inherit;"> 目前仅支持 .xls 与 .xlsx 文件的导入</font></div>
+			
+			<button id="uploadButton" class="btn btn-primary" type="button"><span class="glyphicon glyphicon-open"></span> 选择文件上传
+				</button>
+
+			<input id="fileuploadtor" hidden class="fileuploadBut" type="file" name="files[]" accept="application/vnd.ms-excel,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" >
+
+		</div>
+
+		<div class="b1">需要模板?</div>
+		<div class="bcontent">
+			<button id="getExampleExcel" type="button" class="btn btn-default" style="color: grey"><span class="glyphicon glyphicon-download-alt"></span> 获取数据模板</button><font style="color: grey">下载一份Excel模板</font>
+		</div>
+			
+	</div>
+
+	<div class="buttonArea"><div class="button">&#12288;</div></div>
+  </div>
+
+</div>
+
+<!-- 配对数据框 1 -->
+<div id="datapairBox" class="contentOutBox contentOutBoxBottom">
+  <div class="contentBox">
+	<div class="contentTitBox">
+		<span class="contentTit">数据导入</span>
+		<span class="contentSubTit">配对数据</span>
+	</div>
+
+	<!-- 华丽的分割线 -->
+	<div class="hr"></div>
+	
+	<div class="elementBox">
+		<div class="bcontent">
+			<div class="alert alert-info"><span class="glyphicon glyphicon-info-sign"></span><font style="vertical-align: inherit;">括号内为列的数据类型,请从右侧列表中<b>拖动项目</b>到左侧列表.<br/>注意,数据类型不一定需要完全匹配,可以数值=>文本,但<b>不能文本=>数值</b></font></div>
+			<div class="inline-tableBox">
+				<table class="table table-hover table-inline">
+					<thead>
+						<tr>
+							<th>Excel 列</th>
+							<th>当前对应数据库列</th>
+						</tr>
+					</thead>
+					<tbody id="table_excel" ondragstart="table_excel_dragstart(event)" ondragend="table_excel_dragend(event)" ondrop="table_excel_drop(event)" ondragover="table_allowDrop(event)" ondragenter="table_drag_enter(event)" ondragleave="table_drag_leave(event)">
+						
+					</tbody>
+					
+				</table>
+			</div>
+	
+			<div class="inline-tableBox">
+				<table class="table table-hover table-inline">
+					<thead>
+						<tr>
+							<th>当前剩余数据库列</th>
+						</tr>
+					</thead>
+					<tbody id="table_field" ondragstart="table_field_dragstart(event)" ondragend="table_field_dragend(event)" ondrop="table_field_drop(event)" ondragover="table_allowDrop(event)" ondragenter="table_drag_enter(event)" ondragleave="table_drag_leave(event)">
+						
+					</tbody>
+					
+				</table>
+			</div>
+		</div>
+	</div>
+	<!-- 占位按钮 -->
+	<div class="buttonArea"><div class="button">&#12288;</div></div>
+  </div>
+
+</div>
+
+<!-- 预导入框 2-->
+<div id="preimportBox" class="contentOutBox contentOutBoxBottom">
+  <div class="contentBox">
+	<div class="contentTitBox">
+		<span class="contentTit">数据导入</span>
+		<span class="contentSubTit">数据预导入</span>
+	</div>
+
+	<!-- 华丽的分割线 -->
+	<div class="hr"></div>
+	
+	<div class="elementBox">
+		<!-- <div class="b1">组件标题</div> -->
+		<div class="alert alert-info"><span class="glyphicon glyphicon-info-sign"></span><font style="vertical-align: inherit;"> 将数据模拟导入一次,并返回 <b>示例数据</b> 和 <b>错误数据</b> ,以此来检查列是否匹配.</font></div>
+		
+		<div class="datatable">
+			<table id="preimportTable" class="table table-hover table-condensed">
+			</table>
+		</div>
+		<div>
+			<div class="floatLeft">
+				<div id="allowDefaultOutBox" data-container="body" data-toggle="popover" data-placement="top" data-content=""  title="遇到错误时使用默认数据填充 请确定可以接受默认数据,因有默认值的列无法检测错误." title="当遇到错误时, 以下列会使用以下默认数据">
+
+					<label class="checkboxButton" id="allowDefault">
+						<input type="checkbox">
+						<div class="btn btn-sm btn-default">遇错用默认数据</div>
+					</label>
+
+				</div>
+			</div>
+
+			<div class="floatRight">
+
+				<span class="cnote">查看所有导入示例数据?</span>
+
+				<label class="checkboxButton" id="getAllDataBtn" title="显示全部示例数据和错误 (需要一定时间获取)">
+					<input type="checkbox">
+					<div class="btn btn-sm btn-default">获取全部数据</div>
+				</label>
+
+			</div>
+		</div>
+
+	</div>
+	<!-- 占位按钮 -->
+	<div class="buttonArea"><div class="button">&#12288;</div></div>
+  </div>
+
+</div>
+
+<!-- 确定导入框 3-->
+<div id="confirmBox" class="contentOutBox contentOutBoxBottom">
+  <div class="contentBox">
+	<div class="contentTitBox">
+		<span class="contentTit">数据导入</span>
+		<span class="contentSubTit">确认导入</span>
+	</div>
+
+	<!-- 华丽的分割线 -->
+	<div class="hr"></div>
+	
+	<div class="elementBox">
+		<!-- <div class="alert alert-warning"><span class="glyphicon glyphicon-warning-sign"></span><font style="vertical-align: inherit;"> 开始导入后操作无法撤销,请谨慎操作</font></div> -->
+		<div class="b1">附加数据</div>
+		<div class="bcontent">
+			<div class="form-group">
+		    <label>数据月份</label>
+		    <div>
+		      <input type="number" class="form-control" id="datamonth" placeholder="(必填) 年四位月两位 如:202001">
+		    </div>
+	  	</div>
+			
+		</div>
+		<div class="b1">选项</div>
+		<div class="bcontent">
+			<div class="optionBox">
+				<button type="button" class="btn btn-sm btn-default active" data-toggle="button" id="updateDataBtn"> 更新数据
+				</button>
+				<div>
+					<span class="cnote">若关闭,导入时有 id 相同的项目会跳过</span>
+				</div>
+			</div>
+
+			<div class="optionBox">
+				<button type="button" class="btn btn-sm btn-default" title="不推荐" data-toggle="button" id="errInterruptBtn"> 遇错中止
+				</button>
+				<div class="cnote">
+					(不推荐) 当导入时遇到错误则中止. 打开后遇到错误会导致数据没有完全导入.
+				</div>
+			</div>
+
+			<div class="optionBox">
+				<button type="button" class="btn btn-sm btn-default" title="不推荐" data-toggle="button" id="allowDefaultCirm"> 使用列默认数据
+				</button>
+				<div class="cnote">
+					(不推荐) 若有默认数据的列中某个单元格读取失败. 系统<b>不会出现警告提示</b><br/> 而是直接使用默认数据替代.
+				</div>
+			</div>
+
+
+		</div>
+	</div>
+	<!-- 占位按钮 -->
+	<div class="buttonArea"><div class="button">&#12288;</div></div>
+  </div>
+
+</div>
+
+
+<!-- 正在导入框 4-->
+<div id="importingBox" class="contentOutBox contentOutBoxBottom">
+  <div class="contentBox">
+	<div class="contentTitBox">
+		<span class="contentTit">数据导入</span>
+		<span class="contentSubTit">正在导入</span>
+	</div>
+
+	<!-- 华丽的分割线 -->
+	<div class="hr"></div>
+	
+	<div class="alert alert-success"><span class="glyphicon glyphicon-floppy-save"></span><font style="vertical-align: inherit;"> 正在导入中,请稍候...</font></div>
+
+	<div class="elementBox">
+		<div class="b1">文件信息</div>
+		<div class="bcontent">
+			文件id: <span id="importing_fileid">-</span>
+			<br/>
+			行数: <span id="importing_rows">-</span>
+			<br/>
+		</div>
+		<div class="b1">转换状态</div>
+		<div class="bcontent">
+			当前状态: <span id="importing_status">队列中</span>
+			<br/>
+			已用时间: <span id="importing_time">-</span> s
+			<br/>
+			转换进度: <span id="importing_progress">-%</span>
+			<br/>
+			遇错个数: <span id="importing_errorCount">-</span> 个
+			<br/>
+
+		</div>
+		<br/>
+		<div class="progress progress-striped active">
+		    <div id="importProgressBar" class="progress-bar progress-bar-success" role="progressbar" style="width: 0%;">
+		    </div>
+		</div>
+	</div>
+  </div>
+
+</div>
+
+<!-- 导入结果 5-->
+<div id="resultBox" class="contentOutBox contentOutBoxBottom">
+  <div class="contentBox">
+	<div class="contentTitBox">
+		<span class="contentTit">数据导入</span>
+		<span class="contentSubTit">导入结果</span>
+	</div>
+
+	<!-- 华丽的分割线 -->
+	<div class="hr"></div>
+
+	<div id="result_success" class="alert alert-success"><span class="glyphicon glyphicon-ok"></span><font style="vertical-align: inherit;"> 文件导入成功</font></div>
+
+	<div id="result_error" class="alert alert-danger"><span class="glyphicon glyphicon-warning-sign"></span><font style="vertical-align: inherit;"> 文件导入有 <b><span id="result_errcount">1</span></b> 个错误</font></div>
+
+	<div class="elementBox">
+		<!-- <div class="b1">组件标题</div> -->
+		<div class="datatable">
+			<table id="resultErrorTable" class="table table-striped table-hover table-condensed">
+			</table>
+		</div>
+	</div>
+	<!-- 占位按钮 -->
+	<div class="buttonArea"><div class="button">&#12288;</div></div>
+  </div>
+
+</div>
+
+<!-- ?? 6-->
+<div class="contentOutBox contentOutBoxBottom">
+  <div class="contentBox">
+	<div class="contentTitBox">
+		<span class="contentTit">数据导入</span>
+		<span class="contentSubTit">配对数据</span>
+	</div>
+
+	<!-- 华丽的分割线 -->
+	<div class="hr"></div>
+	
+	<div class="elementBox">
+		<div class="b1">组件标题</div>
+		<div class="bcontent">
+			<div class="alert alert-info"><span class="glyphicon glyphicon-info-sign"></span><font style="vertical-align: inherit;"> 信息</font></div>
+			
+		</div>
+	</div>
+	<!-- 占位按钮 -->
+	<div class="buttonArea"><div class="button">&#12288;</div></div>
+  </div>
+
+</div>
+
+			</div>
+			<div class="buttonArea buttonBox">
+				<div id="previousBut" onclick="previousPress()" class="button previousBut">
+					<span class="glyphicon glyphicon-chevron-left"></span>
+					<font style="vertical-align: inherit;"> 
+						上一步
+					</font>
+				</div>
+				<div id="resetBut" onclick="resetPress()" class="button resetBut">
+					<span class="glyphicon glyphicon-remove"></span>
+					<font style="vertical-align: inherit;"> 
+						重置
+					</font>
+				</div>
+				<div id="nextBut" onclick="nextPress()" class="button nextBut">
+					<font style="vertical-align: inherit;"> 
+						下一步
+					</font>
+					<span class="glyphicon glyphicon-chevron-right"></span>
+				</div>
+			</div>
+			
+
+
+		</div>
+	</div>
+</div>
+
+<div id="copyright"><div><strong>Copyright &copy; 2020 by MaxMiku All rights Reserved<br/><i>Version 1.2.0</i> Contact me: <a href="mailto:jmchenlx@outlook.com?subject=[ExcelImportSystem] ">jmchenlx@outlook.com</a></strong></div></div>
+
+</div>
+</body>
+<script type="text/javascript" src="./js/jquery-2.1.1.min.js"></script>
+<script type="text/javascript" src="./js/index.js"></script>
+<script type="text/javascript" src="./js/index.windows.js"></script>
+<script type="text/javascript" src="./js/index.debug.js"></script>
+<script type="text/javascript" src="./js/index.datapairBox.js"></script>
+<script type="text/javascript" src="./js/index.preimportBox.js"></script>
+<script type="text/javascript" src="./js/index.importingBox.js"></script>
+<script type="text/javascript" src="./js/index.uploadBox.js"></script>
+<script type="text/javascript" src="./js/bootstrap.min.js"></script>
+</html>
+

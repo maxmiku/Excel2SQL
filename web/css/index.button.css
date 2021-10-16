@@ -1,0 +1,46 @@
+/*重置按钮*/
+.resetBut{
+	background-color: #fff;
+	border-color: rgba(221, 136, 34, .5764705882352941);
+	color: #D82;
+	cursor: pointer;
+}
+
+.resetBut:hover{
+	background-color: rgba(245, 222, 197, .6588235294117647);
+}
+
+.resetBut:active{
+	background-color: rgba(235, 192, 146, .8156862745098039);
+}
+
+/*上一个*/
+.previousBut{
+	background-color: #fff;
+	border-color: rgba(137, 137, 137, .5764705882352941);
+	color: #777;
+	cursor: pointer;
+}
+
+.previousBut:hover{
+	background-color: rgba(214, 214, 214, .6588235294117647);
+}
+
+.previousBut:active{
+	background-color: rgba(186, 186, 186, .8156862745098039);
+}
+
+/*下一个*/
+.nextBut{
+	background-color: #fff;
+	border-color: rgba(51, 187, 102, .5764705882352941);
+	color: #3B6;
+	cursor: pointer;
+}
+.nextBut:hover{
+	background-color: rgba(187, 238, 204, .5568627450980392);
+}
+.nextBut:active{
+	background-color: rgba(148, 228, 174, .788235294117647);
+}
+
