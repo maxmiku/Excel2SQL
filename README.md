@@ -3,3 +3,6 @@
 
 Java
 Web
+
+Pay attention to YAML vulnerabilities and patch prevention.
+请留意yaml漏洞，注意修补防范
